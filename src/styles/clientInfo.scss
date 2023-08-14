@@ -1,0 +1,85 @@
+@import "variables";
+
+.client-info {
+  margin: 66px 0;
+
+  form {
+    width: 334px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.card-input {
+  padding: 70px;
+
+  &__container {
+    margin: auto;
+    width: 400px;
+    padding: 40px;
+    border: 1px solid $blue-transparent;
+    border-radius: 10px;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__message {
+    margin: 16px 0 32px;
+  }
+
+  .card-icons {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__field-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin: 24px 0 6px;
+    font-size: 18px;
+    font-weight: 400;
+    color: $blue-not-main
+  }
+}
+
+.order-success {
+  padding: 139px 64px 217px;
+
+  &__container {
+    width: 422px;
+    height: 365px;
+    border-radius: 10px;
+    border: 2px solid rgba(4, 179, 21, 0.80);
+    background: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-direction: column;
+    margin: auto;
+    padding: 5px;
+  }
+
+  &__message {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    white-space: pre-line;
+  }
+}

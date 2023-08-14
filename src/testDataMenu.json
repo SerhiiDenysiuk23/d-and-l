@@ -1,0 +1,188 @@
+[
+  {
+    "id": "a",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Fresh Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Small",
+    "type": "Chicken",
+    "price": 6.90
+  },
+  {
+    "id": "a1",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Fresh Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Large",
+    "type": "Chicken",
+    "price": 8.90
+  },
+  {
+    "id": "a2",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Fresh Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Large",
+    "type": "Lamb",
+    "price": 9.60
+  },
+  {
+    "id": "a3",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Fresh Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Small",
+    "type": "Lamb",
+    "price": 7.40
+  },
+
+
+  {
+    "id": "b",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Spicy Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Small",
+    "type": "Chicken",
+    "price": 6.90
+  },
+  {
+    "id": "b1",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Spicy Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Large",
+    "type": "Chicken",
+    "price": 8.90
+  },
+  {
+    "id": "b2",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Spicy Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Large",
+    "type": "Lamb",
+    "price": 9.60
+  },
+  {
+    "id": "b3",
+    "category": {
+      "id": "aa",
+      "name": "Kebab"
+    },
+    "name": "Spicy Kebab",
+    "description": "Handmade sauce, Lettuce, Cucumber, Red onion, Pepper, Tomato, Toasted wrap/ donner bread",
+    "size": "Small",
+    "type": "Lamb",
+    "price": 7.40
+  },
+
+
+  {
+    "id": "с",
+    "category": {
+      "id": "aa1",
+      "name": "Burgers"
+    },
+    "name": "Beef burger",
+    "description": "Lettuce, Relish, Red Onion, Pickled Gherkins",
+    "price": 6.90
+  },
+  {
+    "id": "с1",
+    "category": {
+      "id": "aa1",
+      "name": "Burgers"
+    },
+    "name": "DBL Beef burger",
+    "description": "Lettuce, Relish, Red Onion, Pickled Gherkins",
+    "price": 8.90
+  },
+
+
+  {
+    "id": "d",
+    "category": {
+      "id": "aa2",
+      "name": "Meal Deal"
+    },
+    "name": "Beef burger Meal",
+    "description": "Lettuce, Relish, Red Onion, Pickled Gherkins",
+    "subDescription": "Served with Fries or Mix Salad and Soft Drink.",
+    "price": 9.60
+  },
+  {
+    "id": "d1",
+    "category": {
+      "id": "aa2",
+      "name": "Meal Deal"
+    },
+    "name": "DBL Beef burger Meal",
+    "description": "Lettuce, Relish, Red Onion, Pickled Gherkins",
+    "subDescription": "Served with Fries or Mix Salad and Soft Drink.",
+    "price": 10.65
+  },
+
+
+  {
+    "id": "e",
+    "category": {
+      "id": "aa3",
+      "name": "Sauce"
+    },
+    "name": "Garlic Mayo",
+    "price": 0.80
+  },
+  {
+    "id": "e1",
+    "category": {
+      "id": "aa3",
+      "name": "Sauce"
+    },
+    "name": "Sweet chilli",
+    "price": 0.80
+  },
+
+
+  {
+    "id": "f",
+    "category": {
+      "id": "aa4",
+      "name": "Soft Drinks"
+    },
+    "name": "Coca Cola",
+    "description": "330ml",
+    "price": 1.50
+  },
+  {
+    "id": "f1",
+    "category": {
+      "id": "aa4",
+      "name": "Soft Drinks"
+    },
+    "name": "Coca Cola Diet",
+    "description": "330ml",
+    "price": 1.40
+  }
+]

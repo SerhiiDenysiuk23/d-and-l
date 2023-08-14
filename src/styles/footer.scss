@@ -1,0 +1,27 @@
+@import "variables";
+
+footer{
+  padding: 54px 64px 95px 175px;
+  border-top: 1px solid $blue-not-main;
+  display: flex;
+  justify-content: space-between;
+  .logo{
+    color: $secondary-color;
+    margin-bottom: 54px;
+  }
+  svg{
+    width: 40px;
+    height: 40px;
+    margin-right: 24px;
+  }
+  ul{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    div{
+      display: inline-block;
+    }
+  }
+}
+
+//AIzaSyBETfoESraRf5ChhqHzWp8Etn_HtELU_9w

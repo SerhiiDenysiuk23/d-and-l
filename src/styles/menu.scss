@@ -1,0 +1,51 @@
+@import 'variables';
+
+$btn-width: 32px;
+
+.menu-section {
+
+  &__table {
+    width: 100%;
+    max-width: 665px;
+    margin: 58px auto;
+
+    tr {
+      td {
+        font-weight: 600;
+        padding-bottom: 32px;
+
+        &:first-child {
+          width: 200px;
+        }
+
+        &:nth-child(2) {
+          font-weight: 300;
+        }
+
+        &:nth-last-child(2) {
+          width: 125px;
+        }
+
+        &:last-child {
+          width: $btn-width;
+        }
+      }
+
+      &:last-child td{
+          padding: 0
+      }
+    }
+  }
+
+  .add-button {
+    width: $btn-width;
+    height: 32px;
+    background: $green-color;
+    border: 2px solid white;
+    color: white;
+    font-size: 34px;
+    line-height: 26px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}

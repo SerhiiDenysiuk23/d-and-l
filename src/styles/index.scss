@@ -1,0 +1,75 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo{
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+h1{
+  text-align: center;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 56px;
+}
+
+h3{
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  >div{
+    border: 1px solid $blue-not-main;
+    height: 0;
+    flex-grow: 1;
+  }
+}
+
+.container{
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+main{
+  color: $primary-color;
+}
+
+@import "ui";
+@import "header";
+@import "promotion";
+@import "menu";
+@import "shopingCard";
+@import "footer";
+@import "clientInfo";

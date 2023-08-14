@@ -1,0 +1,82 @@
+@import "variables";
+
+.radio-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 94px;
+
+  input[type='radio']{
+    display: none;
+  }
+
+  label{
+    position: relative;
+    font-size: 12px;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    .custom-radio{
+      box-sizing: border-box;
+      position: absolute;
+      left: -36px;
+      top: -2px;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $blue-transparent;
+      border-radius: 5px;
+      &:before{
+        display: none;
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        content: "";
+        border-radius: 2px;
+        background: $green-color;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  input:checked + label{
+    .custom-radio {
+      border-color: $green-color;
+      &:before{
+        display: block;
+      }
+    }
+  }
+}
+
+.green-button{
+  display: block;
+  width: 334px;
+  background: $green-color;
+  padding: 14px;
+  margin: 40px auto 50px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover{
+    opacity: .8;
+  }
+}
+
+.input-field{
+  &__label{
+    font-size: 16px;
+    font-weight: 300;
+    color: $blue-not-main;
+  }
+  input[type="text"]{
+    width: 100%;
+    height: 48px;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid $blue-transparent;
+  }
+}

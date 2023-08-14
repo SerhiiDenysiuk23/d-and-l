@@ -1,0 +1,103 @@
+@import "variables";
+
+.promotion{
+  position: relative;
+  width: 100%;
+
+  .logo-big{
+    width: 422px;
+    height: 422px;
+    border: 4px solid $secondary-color;
+    border-radius: 50%;
+    margin: -40px auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    font-size: 64px;
+    position: relative;
+    user-select: none;
+    div:nth-child(1){
+      color: $secondary-color;
+    }
+    div:nth-child(2){
+      color: $primary-color;
+    }
+    img{
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      top: 83px;
+      right: 67px;
+    }
+  }
+
+
+
+  .order-now{
+    color: $primary-color;
+    width: 100%;
+    max-width: 390px;
+    margin: 24px auto 40px;
+    div{
+      text-align: center;
+    }
+    &__call{
+      font-size: 40px;
+      font-weight: 600;
+      color: $secondary-color;
+    }
+    &__phone{
+      font-size: 32px;
+      margin: 24px 0 8px;
+      font-weight: 600;
+    }
+  }
+
+  .arrow-down{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 86px;
+    a{
+      display: inherit;
+      flex-direction: inherit;
+      align-items: inherit;
+    }
+
+    div:last-child {
+      width: 0;
+      border: solid $secondary-color;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 10px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+    div:first-child{
+      height: 56px;
+      width: 0;
+      border: 1.6px solid $secondary-color;
+      margin-bottom: -25px;
+    }
+  }
+
+  .food-img{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 64px;
+    &.burger{
+      right: 0;
+      width: 380px;
+      height: 350px;
+    }
+    &.burrito{
+      left: 0;
+      width: 412px;
+      height: 412px;
+    }
+  }
+}
