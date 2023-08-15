@@ -1,8 +1,11 @@
 import React, {FC} from 'react';
 import MenuItem from "./MenuItem";
-import {MenuType} from "../types/MenuItem";
+import {MenuType} from "../types/MenuType";
+import MenuItemVariate from "./MenuItemVariate";
 
-const MenuSection: FC<{title: string, menuList: MenuType[]}> = ({title, menuList}) => {
+
+const MenuSection: FC<{title: string, menuList: MenuType[][]}> = ({title, menuList}) => {
+
   return (
     <div className="menu-section">
       <h3>{title} <div/></h3>
@@ -10,7 +13,9 @@ const MenuSection: FC<{title: string, menuList: MenuType[]}> = ({title, menuList
         <tbody>
         {
           menuList.map(item => {
-            return <MenuItem menuItem={item} key={item.id}/>
+            return item.length > 1
+              ? <MenuItemVariate key={item[0].name} menuItems={item}/>
+              : <MenuItem menuItem={item[0]} key={item[0].id}/>
           })
         }
         </tbody>

@@ -9,5 +9,6 @@ export interface MenuType {
   type?: string,
   size?: string
   description?: string,
-  subDescription?: string,
+  subDescription?: string
+
 }

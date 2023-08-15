@@ -3,13 +3,12 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import {BrowserRouter} from "react-router-dom";
 import Content from "./components/common/Content";
-import reducer, {initState} from "./store/reducer";
+import reducer, {Action, initState} from "./store/reducer";
 import {State} from "./types/Store";
-import {Action} from "./types/Category";
 
 interface ContextType {
   state: State,
-  dispatch: React.Dispatch<Action<any>>
+  dispatch: React.Dispatch<Action>
 }
 
 const contextInitState: ContextType = {
