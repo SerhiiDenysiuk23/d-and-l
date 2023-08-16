@@ -6,4 +6,6 @@ export interface State {
   menuList: MenuType[]
   categories: Category[]
   order: OrderType[]
+  subTotal: number
+  deliveryPrice: number
 }

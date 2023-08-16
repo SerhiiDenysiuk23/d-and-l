@@ -15,6 +15,18 @@ header{
       justify-content: center;
       align-items: center;
       gap: 64px;
+      .indicator{
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        background: $secondary-color;
+        border-radius: 50%;
+        &__no-display{
+          display: none;
+        }
+      }
     }
   }
   a:hover{

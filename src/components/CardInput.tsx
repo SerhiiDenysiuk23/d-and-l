@@ -36,7 +36,7 @@ const CardInput = () => {
 
       <div className="card-input__total">
         <div>Total: </div>
-        <div>19.4 £</div>
+        <div>{(state.subTotal + state.deliveryPrice).toFixed(2)} £</div>
       </div>
 
       <button onClick={handleSubmit} className="green-button">Confirm the payment</button>
