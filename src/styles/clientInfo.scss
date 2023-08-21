@@ -13,11 +13,12 @@
 }
 
 .card-input {
-  padding: 70px;
+  padding: 70px 16px;
 
   &__container {
     margin: auto;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     padding: 40px;
     border: 1px solid $blue-transparent;
     border-radius: 10px;
@@ -26,7 +27,7 @@
   &__fields {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 15px;
   }
 
   &__message {
@@ -38,12 +39,16 @@
     justify-content: left;
     align-items: center;
     gap: 40px;
+    svg{
+      width: 48px;
+      height: auto;
+    }
   }
 
   &__field-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
     gap: 12px;
   }
 
@@ -59,10 +64,11 @@
 }
 
 .order-success {
-  padding: 139px 64px 217px;
+  padding: 139px 16px 217px;
 
   &__container {
-    width: 422px;
+    width: 100%;
+    max-width: 422px;
     height: 365px;
     border-radius: 10px;
     border: 2px solid rgba(4, 179, 21, 0.80);
@@ -81,5 +87,41 @@
     font-size: 24px;
     font-weight: 400;
     white-space: pre-line;
+  }
+  @media screen and (max-width: $mobileLayout){
+    padding-top: 98px;
+    padding-bottom: 148px;
+    &__container{
+      height: 272px;
+    }
+    &__message {
+      font-size: 14px;
+    }
+    svg{
+      width: 72px;
+      height: auto;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 330px) {
+  .card-input {
+    font-size: 16px;
+    &__container{
+      padding: 15px;
+    }
+    &__field-row {
+      gap: 7px;
+    }
+
+    .card-icons {
+      gap: 32px;
+      svg{
+        width: 32px
+      }
+    }
+
   }
 }

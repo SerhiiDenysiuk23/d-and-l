@@ -1,10 +1,12 @@
 @import "variables";
 
 footer{
-  padding: 54px 64px 95px 175px;
+  margin-top: 128px;
+  padding: 90px 64px 335px 181px;
   border-top: 1px solid $blue-not-main;
   display: flex;
   justify-content: space-between;
+  gap: 1em;
   .logo{
     color: $secondary-color;
     margin-bottom: 54px;
@@ -14,14 +16,70 @@ footer{
     height: 40px;
     margin-right: 24px;
   }
+  .contacts{
+    width: 50%;
+  }
   ul{
     display: flex;
     flex-direction: column;
     gap: 40px;
+    li{
+      white-space: nowrap;
+    }
     div{
       display: inline-block;
+      white-space: initial;
+      width: calc(100% - 40px - 24px);
     }
   }
-}
 
-//AIzaSyBETfoESraRf5ChhqHzWp8Etn_HtELU_9w
+  .google-maps{
+    flex-grow: 1;
+    height: 487px;
+  }
+
+  @media screen and (max-width: $smallDesktopLayout){
+    .google-maps{
+      flex-grow: 1;
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: $tabletLayout){
+    padding: 68px 35px 335px 66px;
+  }
+
+  @media screen and (max-width: $smallTabletLayout){
+    padding: 40px 16px 335px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 150px;
+    .google-maps{
+      height: 440px;
+      width: 100%;
+    }
+    .contacts{
+      width: auto;
+    }
+    ul{
+      div{
+        display: inline-block;
+        white-space: initial;
+        width: calc(100% - 48px);
+      }
+    }
+  }
+
+  @media screen and (max-width: $bigMobileLayout){
+    font-size: 16px;
+    .google-maps{
+      height: 240px;
+    }
+    svg{
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+}

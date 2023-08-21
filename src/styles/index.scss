@@ -17,6 +17,10 @@ body{
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  @media screen and (max-width: $bigMobileLayout) {
+    font-size: 14px;
+  }
+
 }
 
 ul{
@@ -33,6 +37,9 @@ a{
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  @media screen and (max-width: $bigMobileLayout){
+    font-size: 24px;
+  }
 }
 
 h1{
@@ -42,6 +49,10 @@ h1{
   font-weight: 500;
   line-height: normal;
   margin-bottom: 56px;
+  @media screen and (max-width: $bigMobileLayout){
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
 }
 
 h3{
@@ -54,7 +65,7 @@ h3{
   align-items: center;
   gap: 40px;
   >div{
-    border: 1px solid $blue-not-main;
+    border: 1px solid $blue-transparent;
     height: 0;
     flex-grow: 1;
   }
@@ -64,6 +75,11 @@ h3{
   width: 100%;
   max-width: 1100px;
   margin: auto;
+  padding: 0 16px;
+
+  @media screen and (max-width: $mobileLayout) {
+    padding: 0 16px;
+  }
 }
 
 main{

@@ -29,7 +29,7 @@ const ShoppingCart = () => {
   }
 
   return (
-    <section>
+    <section className='container'>
       <div className="order">
         <div className='order__title'>Your order:</div>
         <table>

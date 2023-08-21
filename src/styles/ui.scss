@@ -51,7 +51,8 @@
 
 .green-button{
   display: block;
-  width: 334px;
+  max-width: 334px;
+  width: 100%;
   background: $green-color;
   padding: 14px;
   margin: 40px auto 50px;
@@ -67,10 +68,11 @@
 }
 
 .input-field{
+  font-size: 16px;
   &__label{
-    font-size: 16px;
     font-weight: 300;
     color: $blue-not-main;
+    line-height: 3em;
   }
   input[type="text"]{
     width: 100%;
@@ -78,5 +80,8 @@
     display: block;
     border-radius: 10px;
     border: 1px solid $blue-transparent;
+  }
+  @media screen and (max-width: $bigMobileLayout) {
+    font-size: 14px;
   }
 }

@@ -1,6 +1,5 @@
 @import 'variables';
 
-$btn-width: 32px;
 
 .menu-section {
 
@@ -37,19 +36,20 @@ $btn-width: 32px;
       }
     }
 
-    .sub-table{
-      td{
-        &:nth-child(2){
+    .sub-table {
+      td {
+        &:nth-child(2) {
           font-weight: 500;
         }
-        &:nth-child(3){
+
+        &:nth-child(3) {
           font-weight: 300;
           text-align: right;
         }
       }
     }
 
-    .sub-description{
+    .sub-description {
       font-size: 20px;
       font-weight: 200;
     }
@@ -65,8 +65,88 @@ $btn-width: 32px;
     line-height: 26px;
     border-radius: 8px;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
       opacity: .8;
+    }
+  }
+
+  @media screen and (max-width: $smallDesktopLayout)
+  {
+    h3 {
+      width: 80%;
+      margin: auto;
+    }
+  }
+
+  @media screen and (max-width: $tabletLayout) {
+    &__table {
+      tr {
+        td {
+          padding: 0 5px 32px;
+
+          &:first-child {
+            width: 190px;
+            padding-left: 66px;
+          }
+
+          &:nth-last-child(2) {
+            width: 90px;
+          }
+
+          &:last-child {
+            width: 166px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $bigMobileLayout) {
+
+    h3 {
+      width: auto;
+      margin: 0;
+      font-size: 18px;
+      gap: 10px;
+    }
+
+    .add-button {
+      width: 24px;
+      height: 24px;
+      font-size: 27px;
+      line-height: 10px;
+      border-radius: 5px;
+    }
+
+    &__table {
+      tr {
+        td {
+          vertical-align: center;
+
+          &:first-child {
+            width: 75px;
+            padding-left: 0;
+          }
+
+          &:last-child {
+            width: 24px;
+            padding-right: 0;
+          }
+
+          &:nth-child(2) {
+            width: auto;
+          }
+
+          &:nth-last-child(2) {
+            width: 50px;
+          }
+        }
+      }
+
+      .sub-description {
+        font-size: 14px;
+      }
     }
   }
 }

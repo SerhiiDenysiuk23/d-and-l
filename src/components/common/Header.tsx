@@ -13,9 +13,14 @@ const Header = () => {
         <ul>
           <li><Link to="/#menu">Menu</Link></li>
           <li><Link to="/#contacts">Contacts</Link></li>
-          <li style={{position: "relative"}}><Link to="/basket"><BasketIcon/>
+          <li className={'basket'}><Link to="/basket"><BasketIcon/>
             <div className={`indicator ${!state.order.length ? "indicator__no-display" : ""}`}/>
           </Link></li>
+          <li className='burger-menu'>
+            <div/>
+            <div/>
+            <div/>
+          </li>
         </ul>
       </nav>
     </header>

@@ -20,7 +20,7 @@
   }
 
   &__count {
-    width: 124px;
+    width: 50px;
 
     button {
       font-family: Consolas, sans-serif;
@@ -41,7 +41,7 @@
   }
 
   &__separator {
-    width: 268px;
+    width: 47.2%;
     border: 1px solid $blue-transparent;
     margin: 24px auto;
     &__big{
@@ -64,11 +64,26 @@
 
       &:last-child {
         text-align: right;
+        width: 167px;
       }
     }
 
     tr:last-child td {
       padding: 0;
+    }
+  }
+
+  @media screen and (max-width: $bigMobileLayout) {
+    table {
+      width: 100%;
+      margin: 24px 0;
+
+      td {
+        &:last-child {
+          width: 20%;
+          min-width: 55px;
+        }
+      }
     }
   }
 }

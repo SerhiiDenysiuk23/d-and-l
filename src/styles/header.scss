@@ -27,10 +27,77 @@ header{
           display: none;
         }
       }
+
+      .basket{
+        position: relative;
+        a{
+          display: block;
+        }
+        svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      .burger-menu{
+        display: none;
+        div {
+          height: 2px;
+          width: 32px;
+          background: $primary-color;
+          border-radius: 1px;
+          &:nth-child(2){
+            margin: 10px 0;
+          }
+        }
+      }
+
+      @media screen and (max-width: $smallDesktopLayout){
+        gap: 32px;
+      }
+
+      @media screen and (max-width: $tabletLayout){
+        li:not(.basket){
+          display: none;
+        }
+
+        li.burger-menu{
+          display: block;
+        }
+      }
+      @media screen and (max-width: $bigMobileLayout){
+        gap: 16px;
+        .indicator{
+          width: 12px;
+          height: 12px;
+          bottom: 4px;
+        }
+
+        .basket{
+          svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        .burger-menu{
+          display: none;
+          div {
+            width: 24px;
+            &:nth-child(2){
+              margin: 8px 0;
+            }
+          }
+        }
+      }
     }
   }
   a:hover{
     opacity: .8;
+  }
+
+  @media screen and (max-width: $bigMobileLayout){
+    padding: 24px 16px 0;
   }
 }
 
