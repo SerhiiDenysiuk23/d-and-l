@@ -63,6 +63,7 @@
     border-radius: 8px;
     cursor: pointer;
     position: relative;
+    vertical-align: top;
     &:after, &:before{
       background: #FFFFFF;
       position: absolute;
