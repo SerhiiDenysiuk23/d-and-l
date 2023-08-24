@@ -11,7 +11,7 @@
     height: 422px;
     border: 4px solid $secondary-color;
     border-radius: 50%;
-    margin: -40px auto 71px;
+    margin: 40px auto 71px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,6 +20,9 @@
     font-size: 64px;
     position: relative;
     user-select: none;
+    &.header-fixed{
+      margin-top: 0;
+    }
 
     div:nth-child(1) {
       color: $secondary-color;
@@ -162,7 +165,7 @@
       width: 160px;
       height: 160px;
       border-width: 2px;
-      margin: 40px auto 71px;
+      margin: calc(93px * 1.5) auto calc(83px * 1.5);
       gap: initial;
       font-size: 32px;
 
@@ -214,7 +217,7 @@
 
   @media screen and (max-width: $mobileLayout) {
     .food-img {
-      transform: translateY(-100%) scale(1);
+      transform: translateY(-50%) scale(1);
       margin: 0 15px;
 
       &.burger {
@@ -227,6 +230,8 @@
     }
     .logo-big {
       transform: scale(1);
+      margin: 93px auto 83px;
+
     }
   }
 }

@@ -60,12 +60,25 @@
     height: 32px;
     background: $green-color;
     border: 2px solid white;
-    color: white;
-    font-size: 34px;
-    line-height: 26px;
     border-radius: 8px;
     cursor: pointer;
-
+    position: relative;
+    &:after, &:before{
+      background: #FFFFFF;
+      position: absolute;
+      content: "";
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &:before{
+      width: 50%;
+      height: 3px;
+    }
+    &:after{
+      height: 50%;
+      width: 3px;
+    }
     &:hover {
       opacity: .8;
     }

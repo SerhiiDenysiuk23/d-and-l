@@ -2,34 +2,39 @@
 
 footer{
   margin-top: 128px;
-  padding: 90px 64px 335px 181px;
+  padding: 90px 64px 128px 181px;
   border-top: 1px solid $blue-not-main;
   display: flex;
   justify-content: space-between;
   gap: 1em;
+  color: $blue-not-main;
   .logo{
     color: $secondary-color;
     margin-bottom: 54px;
   }
-  svg{
-    width: 40px;
-    height: 40px;
-    margin-right: 24px;
-  }
   .contacts{
     width: 50%;
-  }
-  ul{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    li{
-      white-space: nowrap;
+    ul{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      li{
+        white-space: nowrap;
+      }
+      svg{
+        width: 40px;
+        height: 40px;
+        margin-right: 24px;
+      }
+      div{
+        display: inline-block;
+        white-space: initial;
+        width: calc(100% - 40px - 24px);
+        vertical-align: top;
+      }
     }
-    div{
-      display: inline-block;
-      white-space: initial;
-      width: calc(100% - 40px - 24px);
+    &__phone{
+      padding-top: 5px;
     }
   }
 

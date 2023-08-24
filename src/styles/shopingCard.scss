@@ -6,7 +6,7 @@
   padding: 24px 35px;
   border: 2px solid $blue-transparent;
   border-radius: 10px;
-  margin:  72px auto 0;
+  margin:  151px auto 0;
   font-size: 16px;
   font-weight: 300;
 
@@ -74,6 +74,8 @@
   }
 
   @media screen and (max-width: $bigMobileLayout) {
+    margin:  85px auto 0;
+
     table {
       width: 100%;
       margin: 24px 0;

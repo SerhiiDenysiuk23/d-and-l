@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import logo from "../assets/logo.png";
 import burrito from "../assets/burrito.png";
 import burger from "../assets/burger.png";
+import {StateContext} from "../App";
 
 const Promotion = () => {
+  const {state} = useContext(StateContext)
   return (
     <section className='promotion'>
 
-      <div className="logo-big">
+      <div className={`logo-big ${state.isScrolled ? 'header-fixed' : ''}`}>
         <div>D&L</div>
         <div>takeaway</div>
         <img src={logo} alt=""/>

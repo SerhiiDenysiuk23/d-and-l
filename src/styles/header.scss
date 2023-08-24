@@ -1,21 +1,67 @@
 @import "variables";
 
-header{
+@keyframes headerFromTop {
+  0% {
+    top: -90px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+header {
   padding: 45px 64px 0;
   z-index: 1;
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: padding-top 100ms linear;
+
+  &.fixed {
+    padding-bottom: .5em;
+    position: fixed;
+    padding-top: .5em;
+    background: #FFFFFF;
+    border: 1px solid $blue-transparent;
+    animation: headerFromTop 500ms normal;
+  }
+
+  &.nav-expanded {
+    background: $primary-color;
+    padding-bottom: 45px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    nav {
+      color: #FFFFFF;
+      .burger-menu {
+        div {
+          background: white;
+        }
+      }
+      @media screen and (max-width: $bigMobileLayout){
+        ul{
+          gap: 48px;
+        }
+      }
+    }
+
+  }
+
   nav {
     color: $blue-not-main;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 40px;
+
     ul {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 64px;
-      .indicator{
+
+      .indicator {
         width: 16px;
         height: 16px;
         position: absolute;
@@ -23,80 +69,94 @@ header{
         left: 0;
         background: $secondary-color;
         border-radius: 50%;
-        &__no-display{
+
+        &__no-display {
           display: none;
         }
       }
 
-      .basket{
+      .basket {
         position: relative;
-        a{
-          display: block;
-        }
+        cursor: pointer;
+
         svg {
           width: 32px;
           height: 32px;
         }
       }
 
-      .burger-menu{
+      .burger-menu {
         display: none;
+
         div {
           height: 2px;
           width: 32px;
           background: $primary-color;
           border-radius: 1px;
-          &:nth-child(2){
+
+          &:nth-child(2) {
             margin: 10px 0;
           }
         }
       }
 
-      @media screen and (max-width: $smallDesktopLayout){
+      @media screen and (max-width: $smallDesktopLayout) {
         gap: 32px;
       }
 
-      @media screen and (max-width: $tabletLayout){
-        li:not(.basket){
+      @media screen and (max-width: $tabletLayout) {
+        li:not(.basket) {
           display: none;
         }
 
-        li.burger-menu{
+        li.burger-menu {
           display: block;
         }
       }
-      @media screen and (max-width: $bigMobileLayout){
+      @media screen and (max-width: $bigMobileLayout) {
+        font-size: 16px;
         gap: 16px;
-        .indicator{
+        .indicator {
           width: 12px;
           height: 12px;
           bottom: 4px;
         }
 
-        .basket{
+        .basket {
           svg {
             width: 24px;
             height: 24px;
           }
         }
 
-        .burger-menu{
+        .burger-menu {
           display: none;
+
           div {
             width: 24px;
-            &:nth-child(2){
+
+            &:nth-child(2) {
               margin: 8px 0;
             }
           }
         }
       }
     }
+
+    &.expanded {
+      ul {
+        li {
+          display: block;
+        }
+      }
+    }
   }
-  a:hover{
+
+  a:hover {
     opacity: .8;
   }
 
-  @media screen and (max-width: $bigMobileLayout){
+  @media screen and (max-width: $bigMobileLayout) {
     padding: 24px 16px 0;
   }
 }

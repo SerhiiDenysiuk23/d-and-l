@@ -1,7 +1,7 @@
 @import "variables";
 
 .client-info {
-  margin: 66px 0;
+  margin: 145px 0 97px;
 
   form {
     width: 334px;
@@ -13,7 +13,8 @@
 }
 
 .card-input {
-  padding: 70px 16px;
+  padding: 0 16px;
+  margin: 151px 0 69px;
 
   &__container {
     margin: auto;
@@ -64,7 +65,8 @@
 }
 
 .order-success {
-  padding: 139px 16px 217px;
+  padding: 0 16px;
+  margin: 217px 0;
 
   &__container {
     width: 100%;
@@ -89,8 +91,6 @@
     white-space: pre-line;
   }
   @media screen and (max-width: $mobileLayout){
-    padding-top: 98px;
-    padding-bottom: 148px;
     &__container{
       height: 272px;
     }
@@ -101,6 +101,18 @@
       width: 72px;
       height: auto;
     }
+  }
+}
+
+@media screen and (max-width: $mobileLayout){
+  .client-info {
+    margin: 109px 0 71px;
+  }
+  .card-input{
+    margin: 93px 0 118px;
+  }
+  .order-success {
+    margin: 148px 0;
   }
 }
 

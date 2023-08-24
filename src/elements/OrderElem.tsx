@@ -5,7 +5,7 @@ import {ActionPoint} from "../store/reducer";
 
 const OrderElem: React.FC<{order: OrderType}> = ({order}) => {
   const isSetSlash = (order.item.type && order.item.size)
-  const {state, dispatch} = useContext(StateContext)
+  const {dispatch} = useContext(StateContext)
 
   const handleIncrement = () => {
     dispatch({type: ActionPoint.INCREMENT_ORDER_ELEM, payload: order.item})
@@ -20,7 +20,12 @@ const OrderElem: React.FC<{order: OrderType}> = ({order}) => {
 
   return (
     <tr>
-      <td>{order.item.name} ({order.item.type}{isSetSlash && "/"}{order.item.size})</td>
+      <td>{order.item.name} {
+        (!!order.item.type || !!order.item.size)
+          ? '(' + (order.item.type ?? '') + (isSetSlash ? "/" : "") + (order.item.size ?? '') + ')'
+          : ''
+
+      }</td>
       <td className="order__count">
         <button onClick={handleIncrement}>+</button>
         <span>{order.count}</span>

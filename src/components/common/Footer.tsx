@@ -12,7 +12,7 @@ const Footer = () => {
         <div id='contacts' className="logo">D&L</div>
         <ul>
           <li><LocationIcon/><div>FK11DU Falkirk 185-187 Hight Street</div></li>
-          <li><PhoneIcon/><div>(406) 555-0120</div></li>
+          <li><PhoneIcon/><div className='contacts__phone'>(406) 555-0120</div></li>
           <li><ClockIcon/><div>09:00 - 18:00<br/>without days off</div></li>
         </ul>
       </div>

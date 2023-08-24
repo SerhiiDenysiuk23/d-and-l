@@ -18,8 +18,7 @@ const MenuItem: FC<{menuItem: MenuType}> = ({menuItem}) => {
       <td>{menuItem.description} <span className={'sub-description'}><br/>{menuItem.subDescription}</span></td>
       <td>{menuItem.price.toFixed(2)}</td>
       <td>
-        <button onClick={handleButtonClick} className="add-button">+
-        </button>
+        <button onClick={handleButtonClick} className="add-button"/>
       </td>
     </tr>
   );

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {ReactComponent as CheckMarkIcon} from "../assets/icon/check-mark-icon.svg";
+import {StateContext} from "../App";
 
 const messages: string[] = [
   `Your order is on the way!\nWait for a call from delivery men:)`,
@@ -7,6 +8,7 @@ const messages: string[] = [
 ]
 
 const OrderSuccess = () => {
+  const {state, dispatch} = useContext(StateContext)
 
 
 
@@ -15,7 +17,11 @@ const OrderSuccess = () => {
       <div className='order-success__container'>
         <CheckMarkIcon/>
         <div className='order-success__message'>
-          {messages[1]}
+          {
+            state.deliveryPrice >= 0
+              ? messages[0]
+              : messages[1]
+          }
         </div>
       </div>
     </section>

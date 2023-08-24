@@ -5,11 +5,33 @@ import {ReactComponent as MastercardIcon} from "../assets/icon/mastercard-icon.s
 import {useNavigate} from "react-router-dom";
 import {StateContext} from "../App";
 
+const cardDataInit = {
+  name: "",
+  number: "",
+  expiration: "",
+  code: ""
+}
+
 const CardInput = () => {
   const nav = useNavigate()
   const {state, dispatch} = useContext(StateContext)
   const handleSubmit = () => {
     nav('/order-success')
+  }
+
+  const [cardData, setCardData] = React.useState(cardDataInit)
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCardData({...cardData, name: e.target.value})
+  }
+  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCardData({...cardData, number: e.target.value})
+  }
+  const handleExpirationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCardData({...cardData, expiration: e.target.value})
+  }
+  const handleCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCardData({...cardData, code: e.target.value})
   }
 
   return (
@@ -25,17 +47,17 @@ const CardInput = () => {
         </div>
 
         <div className='card-input__fields'>
-          <InputField placeholder="Name on card"/>
-          <InputField placeholder="Card number"/>
+          <InputField onChange={handleNameChange} value={cardData.name} placeholder="Name on card"/>
+          <InputField onChange={handleNumberChange} value={cardData.number} placeholder="Card number"/>
           <div className='card-input__field-row'>
-            <InputField placeholder="Expiration date"/>
-            <InputField placeholder="Security code"/>
+            <InputField onChange={handleExpirationChange} value={cardData.expiration} placeholder="Expiration date"/>
+            <InputField onChange={handleCodeChange} value={cardData.code} placeholder="Security code"/>
           </div>
         </div>
       </div>
 
       <div className="card-input__total">
-        <div>Total: </div>
+        <div>Total:</div>
         <div>{(state.subTotal + state.deliveryPrice).toFixed(2)} £</div>
       </div>
 

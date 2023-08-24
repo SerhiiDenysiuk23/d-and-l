@@ -3,20 +3,31 @@ import OrderElem from "../elements/OrderElem";
 import {useNavigate} from 'react-router-dom'
 import {StateContext} from "../App";
 import {ActionPoint} from "../store/reducer";
+import {OrderType} from "../types/OrderType";
+
+const CategoriesSubPoint = [
+  'Sauce',
+  'Soft Drinks'
+]
 
 const ShoppingCart = () => {
   const {state, dispatch} = useContext(StateContext)
+
+  const [mainPoints, setMainPoints] = useState<OrderType[]>([])
+  const [subPoints, setSubPoints] = useState<OrderType[]>([])
+
   const nav = useNavigate()
   const [deliveryType, setDeliveryType] = useState('delivery')
 
   const delivery = 2.5
   const pickup = -0.2
 
-  const handleButtonClick = () => {
+  const handleSubmit = () => {
     dispatch({
       type: ActionPoint.SET_DELIVERY_PRICE,
       payload: (deliveryType === 'pickup' ? state.subTotal * pickup : delivery)
     })
+    dispatch({type: ActionPoint.UPDATE_ORDER_LIST, payload: state.order.filter(item => !!item.count)})
     nav('/client-info')
   }
 
@@ -28,27 +39,42 @@ const ShoppingCart = () => {
 
   }
 
+  React.useEffect(() => {
+    setMainPoints(state.order.filter(item => !CategoriesSubPoint.includes(item.item.category.name)))
+    setSubPoints(state.order.filter(item => CategoriesSubPoint.includes(item.item.category.name)))
+  }, [state.order])
+
+
   return (
     <section className='container'>
       <div className="order">
         <div className='order__title'>Your order:</div>
-        <table>
-          <tbody>
-          {
-            state.order.map(item => <OrderElem key={item.item.id} order={item}/>)
-          }
-          </tbody>
-        </table>
-        <div className="order__separator"/>
-
-        <table>
-          <tbody>
-          {/*<OrderElem/>*/}
-          {/*<OrderElem/>*/}
-          </tbody>
-        </table>
-
-        <div className="order__separator"/>
+        {
+          !!mainPoints.length &&
+          <>
+            <table>
+              <tbody>
+              {
+                mainPoints.map(item => <OrderElem key={item.item.id} order={item}/>)
+              }
+              </tbody>
+            </table>
+            <div className="order__separator"/>
+          </>
+        }
+        {
+          !!subPoints.length &&
+          <>
+            <table>
+              <tbody>
+              {
+                subPoints.map(item => <OrderElem key={item.item.id} order={item}/>)
+              }
+              </tbody>
+            </table>
+            <div className="order__separator"/>
+          </>
+        }
 
         <div className='order__title'>Proceed to check out</div>
 
@@ -110,7 +136,7 @@ const ShoppingCart = () => {
           Delivery</label>
       </div>
 
-      <button onClick={handleButtonClick} className="green-button">Check out</button>
+      <button onClick={handleSubmit} className="green-button">Check out</button>
     </section>
   );
 };
