@@ -3,7 +3,7 @@ import {ReactComponent as CheckMarkIcon} from "../assets/icon/check-mark-icon.sv
 import {StateContext} from "../App";
 
 const messages: string[] = [
-  `Your order is on the way!\nWait for a call from delivery men:)`,
+  `Your order is on the way!\nWait for a call from courier:)`,
   'Your order is waiting for you!\nAnd we are waiting for you too:)'
 ]
 

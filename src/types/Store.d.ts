@@ -11,4 +11,5 @@ export interface State {
   deliveryPrice: number
   userData: UserData
   isScrolled: boolean
+  message: string
 }

@@ -36,7 +36,7 @@ const ShoppingCart = () => {
   }
 
   const handleMessageInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-
+    dispatch({type: ActionPoint.SET_MESSAGE, payload: e.target.value})
   }
 
   React.useEffect(() => {

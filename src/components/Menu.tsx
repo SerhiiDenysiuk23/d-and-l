@@ -1,10 +1,12 @@
 import React, {useContext, useState} from 'react';
 import MenuSection from "../elements/MenuSection";
-import {default as menuData} from "../testDataMenu.json"
-import {default as categoryData} from "../testDataCategories.json"
 import {StateContext} from "../App";
 import {Action, ActionPoint} from "../store/reducer";
 import {MenuType} from "../types/MenuType";
+import {getRequest} from "../api/core";
+
+import {default as menuData} from "../testDataMenu.json"
+import {default as categoryData} from "../testDataCategories.json"
 
 const groupMenu = (menuList: MenuType[]) => {
   const groupedMenu = menuList.reduce((groups: {[name: string]: MenuType[]}, menuItem) => {
@@ -25,8 +27,18 @@ const Menu = () => {
   const [groupedMenuList, setGroupedMenuList] = useState<MenuType[][]>([])
 
   React.useLayoutEffect(() => {
+    // getRequest("items").then(resp => {
+    //   console.log(resp)
+    //   dispatch({type: ActionPoint.FETCH_MENU, payload: resp.map((item: any) => {return {...item, price: parseInt(item.price)}})} as Action)
+    //   // dispatch({type: ActionPoint.FETCH_MENU, payload: resp} as Action)
+    // })
+    // getRequest("categories").then(resp => {
+    //   dispatch({type: ActionPoint.FETCH_CATEGORIES, payload: resp} as Action)
+    // })
+
     dispatch({type: ActionPoint.FETCH_MENU, payload: menuData} as Action)
     dispatch({type: ActionPoint.FETCH_CATEGORIES, payload: categoryData} as Action)
+
   }, [])
 
   React.useEffect(()=>{

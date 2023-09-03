@@ -13,7 +13,8 @@ export enum ActionPoint {
   DECREMENT_ORDER_ELEM = 'decrement_order_elem',
   SET_DELIVERY_PRICE = 'set_delivery_price',
   SET_USER_DATA = 'set_user_data',
-  SET_IS_SCROLLED = 'set_is_scrolled'
+  SET_IS_SCROLLED = 'set_is_scrolled',
+  SET_MESSAGE = 'set_message'
 }
 
 export type Action =
@@ -30,6 +31,8 @@ export type Action =
   { type: ActionPoint.UPDATE_ORDER_LIST, payload: OrderType[] }
   |
   { type: ActionPoint.SET_IS_SCROLLED, payload: boolean }
+  |
+  { type: ActionPoint.SET_MESSAGE, payload: string }
 
 
 export const initState: State = {
@@ -44,7 +47,8 @@ export const initState: State = {
     email: "",
     phone: ""
   },
-  isScrolled: false
+  isScrolled: false,
+  message: ""
 }
 
 export default function reducer(state: State, action: Action): State {
@@ -98,6 +102,9 @@ export default function reducer(state: State, action: Action): State {
     }
     case ActionPoint.SET_IS_SCROLLED: {
       return {...state, isScrolled: action.payload}
+    }
+    case ActionPoint.SET_MESSAGE: {
+      return {...state, message: action.payload}
     }
     default:
       return {...state}

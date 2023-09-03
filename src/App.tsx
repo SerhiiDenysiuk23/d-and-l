@@ -1,11 +1,10 @@
 import React, {useReducer} from 'react';
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
-import {BrowserRouter, useNavigate} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import Content from "./components/common/Content";
 import reducer, {Action, initState} from "./store/reducer";
 import {State} from "./types/Store";
-import Popup from "./components/Popup";
 
 interface ContextType {
   state: State,

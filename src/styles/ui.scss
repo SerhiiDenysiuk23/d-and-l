@@ -69,10 +69,12 @@
 
 .input-field{
   font-size: 16px;
+  color: $blue-not-main;
   &__label{
+    display: block;
     font-weight: 300;
-    color: $blue-not-main;
-    line-height: 3em;
+    //line-height: 3em;
+    margin-bottom: 8px;
   }
   input[type="text"]{
     width: 100%;
@@ -81,9 +83,22 @@
     border-radius: 10px;
     border: 1px solid $blue-transparent;
     padding: 0 1em;
-    color: $blue-not-main;
     &:focus{
       outline: 1px solid $blue-not-main;
+    }
+  }
+
+  &__error{
+    color: #FF0303;
+    input[type="text"]{
+      border-color: #FF0303;
+      &:focus{
+        outline-color: #FF0303;
+      }
+    }
+    div{
+      font-size: 14px;
+      margin-top: 4px;
     }
   }
   @media screen and (max-width: $bigMobileLayout) {
