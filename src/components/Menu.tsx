@@ -5,9 +5,6 @@ import {Action, ActionPoint} from "../store/reducer";
 import {MenuType} from "../types/MenuType";
 import {getRequest} from "../api/core";
 
-import {default as menuData} from "../testDataMenu.json"
-import {default as categoryData} from "../testDataCategories.json"
-
 const groupMenu = (menuList: MenuType[]) => {
   const groupedMenu = menuList.reduce((groups: {[name: string]: MenuType[]}, menuItem) => {
     const { name } = menuItem;
@@ -27,18 +24,13 @@ const Menu = () => {
   const [groupedMenuList, setGroupedMenuList] = useState<MenuType[][]>([])
 
   React.useLayoutEffect(() => {
-    // getRequest("items").then(resp => {
-    //   console.log(resp)
-    //   dispatch({type: ActionPoint.FETCH_MENU, payload: resp.map((item: any) => {return {...item, price: parseInt(item.price)}})} as Action)
-    //   // dispatch({type: ActionPoint.FETCH_MENU, payload: resp} as Action)
-    // })
-    // getRequest("categories").then(resp => {
-    //   dispatch({type: ActionPoint.FETCH_CATEGORIES, payload: resp} as Action)
-    // })
-
-    dispatch({type: ActionPoint.FETCH_MENU, payload: menuData} as Action)
-    dispatch({type: ActionPoint.FETCH_CATEGORIES, payload: categoryData} as Action)
-
+    getRequest("items").then(resp => {
+      console.log(resp)
+      dispatch({type: ActionPoint.FETCH_MENU, payload: resp} as Action)
+    })
+    getRequest("categories").then(resp => {
+      dispatch({type: ActionPoint.FETCH_CATEGORIES, payload: resp} as Action)
+    })
   }, [])
 
   React.useEffect(()=>{
@@ -51,6 +43,8 @@ const Menu = () => {
       {
         state.categories.map(item => {
           const menuList = groupedMenuList.filter(x => x[0].category.id === item.id)!
+          if (!menuList.length)
+            return null
           return <MenuSection key={item.id} title={item.name} menuList={menuList}/>
         })
       }

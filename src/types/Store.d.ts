@@ -9,7 +9,7 @@ export interface State {
   order: OrderType[]
   subTotal: number
   deliveryPrice: number
-  userData: UserData
+  checkoutId: string
   isScrolled: boolean
   message: string
 }

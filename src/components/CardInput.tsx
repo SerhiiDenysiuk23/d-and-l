@@ -24,22 +24,15 @@ const CardInput = () => {
 
 
   const handleSubmit = () => {
-    const minimizedOrder = state.order.map(item => {
-      return {count: item.count, menuItemId: parseInt(item.item.id)}
-    })
-
-    const deliveryType = state.deliveryPrice > 0 ? 'delivery' : 'pickup'
     const [expiry_month, expiry_year] = expiry.split('/')
-    postRequest('order', {order: minimizedOrder, deliveryType, message: state.message, userData: state.userData})
+    console.warn(state.checkoutId)
+    completeCheckout(state.checkoutId, {...cardData, expiry_year, expiry_month, number: cardNumber})
       .then(res => {
-
-        completeCheckout(res!, {...cardData, expiry_year, expiry_month})
-          .then(res => {
-
-            if (res!.status === "PAID")
-              nav('/order-success')
-          })
+        console.log(res)
+        // if (res!.status === "PAID")
+        //   nav('/order-success')
       })
+
   }
 
 

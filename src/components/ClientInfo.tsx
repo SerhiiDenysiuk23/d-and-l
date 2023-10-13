@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {StateContext} from "../App";
 import {UserData} from "../types/UserData";
 import {ActionPoint} from "../store/reducer";
+import {completeCheckout, postRequest} from "../api/core";
 
 const userDataInit: UserData = {
   name: "",
@@ -26,6 +27,8 @@ const ClientInfo = () => {
   const [errors, setErrors] = React.useState(errorsInit)
   const [isFirstRender, setIsFirstRender] = React.useState(true)
 
+  const [isRequest, setIsRequest] = React.useState(false)
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setErrors({
@@ -37,12 +40,17 @@ const ClientInfo = () => {
           : "Email is invalid"
         : "Field is required",
       phone: userData.phone.length > 0
-        ? /^(?:0|\\+?44)(?:\\d\\s?){9,10}$/.test(userData.phone)
+        ? /^(((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?\#(\d{4}|\d{3}))?$/.test(userData.phone)
           ? ""
           : "Phone number is invalid"
         : "Field is required",
-      address: state.deliveryPrice > 0 && (!!userData.address && userData.address.length > 0) ? "" : "Field is required"
+      address: state.deliveryPrice < 0
+        ? ""
+        : (!!userData.address && userData.address.length > 0)
+          ? ""
+          : "Field is required"
     })
+    setIsRequest(prevState => !prevState)
   }
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,30 +70,43 @@ const ClientInfo = () => {
   }
 
   React.useEffect(() => {
-    if (isFirstRender)
+    if (isFirstRender) {
+      setIsFirstRender(prevState => !prevState)
       return;
+    }
 
+    console.log(errors)
     if (Object.values(errors).some((error) => error.length > 0))
       return
 
-    if (errors) {
-      dispatch({type: ActionPoint.SET_USER_DATA, payload: userData})
-      nav('/payment')
-    }
-  },[])
 
-  console.log(errors)
+    const minimizedOrder = state.order.map(item => {
+      return {count: item.count, menuItemId: parseInt(item.item.id)}
+    })
+    const deliveryType = state.deliveryPrice > 0 ? 'delivery' : 'pickup'
+    postRequest('order-post', {order: minimizedOrder, deliveryType, message: state.message, userData})
+      .then(res => {
+        if (res.status === "PENDING"){
+          console.log(res)
+          dispatch({type: ActionPoint.SET_CHECKOUT_ID, payload: res.checkoutId})
+          nav('/payment')
+        }
+      })
+  }, [isRequest])
 
   return (
     <section className='client-info'>
       <form onSubmit={handleSubmit}>
         <InputField errorMsg={errors.name} value={userData.name} onChange={handleNameChange} placeholder={"Name"}/>
-        <InputField errorMsg={errors.lastName} value={userData.lastName} onChange={handleLastNameChange} placeholder={"Last name"}/>
-        <InputField errorMsg={errors.phone} value={userData.phone} onChange={handlePhoneChange} placeholder={"Phone number"}/>
+        <InputField errorMsg={errors.lastName} value={userData.lastName} onChange={handleLastNameChange}
+                    placeholder={"Last name"}/>
+        <InputField errorMsg={errors.phone} value={userData.phone} onChange={handlePhoneChange}
+                    placeholder={"Phone number"}/>
         <InputField errorMsg={errors.email} value={userData.email} onChange={handleEmailChange} placeholder={"Email"}/>
         {
           state.deliveryPrice > 0 &&
-          <InputField errorMsg={errors.address} value={userData.address!} onChange={handleAddressChange} placeholder={"Address"}/>
+          <InputField errorMsg={errors.address} value={userData.address!} onChange={handleAddressChange}
+                      placeholder={"Address"}/>
         }
         <button type='submit' className={'green-button'}>Pay for order</button>
       </form>

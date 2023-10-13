@@ -12,7 +12,7 @@ export enum ActionPoint {
   INCREMENT_ORDER_ELEM = 'increment_order_elem',
   DECREMENT_ORDER_ELEM = 'decrement_order_elem',
   SET_DELIVERY_PRICE = 'set_delivery_price',
-  SET_USER_DATA = 'set_user_data',
+  SET_CHECKOUT_ID = 'set_checkout_id',
   SET_IS_SCROLLED = 'set_is_scrolled',
   SET_MESSAGE = 'set_message'
 }
@@ -26,7 +26,7 @@ export type Action =
   |
   { type: ActionPoint.PUSH_TO_ORDER | ActionPoint.INCREMENT_ORDER_ELEM | ActionPoint.DECREMENT_ORDER_ELEM, payload: MenuType }
   |
-  { type: ActionPoint.SET_USER_DATA, payload: UserData }
+  { type: ActionPoint.SET_CHECKOUT_ID, payload: string }
   |
   { type: ActionPoint.UPDATE_ORDER_LIST, payload: OrderType[] }
   |
@@ -41,12 +41,7 @@ export const initState: State = {
   order: [],
   subTotal: 0,
   deliveryPrice: 0,
-  userData: {
-    name: "",
-    lastName: "",
-    email: "",
-    phone: ""
-  },
+  checkoutId: "",
   isScrolled: false,
   message: ""
 }
@@ -97,8 +92,8 @@ export default function reducer(state: State, action: Action): State {
     case ActionPoint.SET_DELIVERY_PRICE: {
       return {...state, deliveryPrice: action.payload}
     }
-    case ActionPoint.SET_USER_DATA: {
-      return {...state, userData: action.payload}
+    case ActionPoint.SET_CHECKOUT_ID: {
+      return {...state, checkoutId: action.payload}
     }
     case ActionPoint.SET_IS_SCROLLED: {
       return {...state, isScrolled: action.payload}

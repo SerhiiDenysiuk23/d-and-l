@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import {StateContext} from "../App";
 import {ActionPoint} from "../store/reducer";
 import {OrderType} from "../types/OrderType";
+import {postRequest} from "../api/core";
 
 const CategoriesSubPoint = [
   'Sauce',
@@ -23,12 +24,28 @@ const ShoppingCart = () => {
   const pickup = -0.2
 
   const handleSubmit = () => {
-    dispatch({
-      type: ActionPoint.SET_DELIVERY_PRICE,
-      payload: (deliveryType === 'pickup' ? state.subTotal * pickup : delivery)
+    const minimizeOrder = state.order.map(item => {return {count: item.count, menuItemId: parseInt(item.item.id)}})
+    console.log(minimizeOrder)
+
+    // console.warn("No price errors, valid")
+    //     dispatch({
+    //       type: ActionPoint.SET_DELIVERY_PRICE,
+    //       payload: (deliveryType === 'pickup' ? state.subTotal * pickup : delivery)
+    //     })
+    // dispatch({type: ActionPoint.UPDATE_ORDER_LIST, payload: state.order.filter(item => !!item.count)})
+    // nav('/client-info')
+
+    postRequest("order-valid-post", minimizeOrder).then(res => {
+      console.log(res)
+      if (res){
+        dispatch({
+          type: ActionPoint.SET_DELIVERY_PRICE,
+          payload: (deliveryType === 'pickup' ? state.subTotal * pickup : delivery)
+        })
+        dispatch({type: ActionPoint.UPDATE_ORDER_LIST, payload: state.order.filter(item => !!item.count)})
+        nav('/client-info')
+      }
     })
-    dispatch({type: ActionPoint.UPDATE_ORDER_LIST, payload: state.order.filter(item => !!item.count)})
-    nav('/client-info')
   }
 
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
